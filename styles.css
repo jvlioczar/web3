@@ -660,8 +660,8 @@ body.side-open .sidepush{ width: var(--side-w-open); }
   box-sizing: border-box;
 }
 
-/* Closed state: icon-only item sized to its content */
-body:not(.side-open) .sidepush-item { flex: 0 0 auto; }
+/* Closed state: icon-only item fills the row, like the libraries without subcategories */
+body:not(.side-open) .sidepush-item { flex: 1 1 auto; }
 .sidepush-item .ico{ width: 18px; height: 18px; display:inline-flex; align-items:center; justify-content:center; opacity:.9; flex-shrink:0; }
 .sidepush-item .label{ font-size: 13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .sidepush-item:hover{
@@ -1438,16 +1438,15 @@ body.side-open .sidepush-subitem {
   box-shadow: -2px -2px 4px var(--shadow-hi), 3px 3px 6px var(--shadow-lo);
 }
 
-/* Prevent sidebar from widening due to long subcategory labels */
-.sidepush {
-  overflow: hidden;
-}
+/* Prevent sidebar from widening due to long subcategory labels.
+   Only the scroll area clips: its padding leaves room for the selected item's shadow.
+   The scrollbar space is always reserved, so items are as wide as in libraries with a long menu. */
 .sidepush-scroll {
   overflow-x: hidden;
+  scrollbar-gutter: stable;
 }
 .sidepush-menu {
   max-width: 100%;
-  overflow: hidden;
 }
 
 
