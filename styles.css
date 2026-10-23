@@ -595,8 +595,8 @@ body.side-open .sidepush{ width: var(--side-w-open); }
 .sidepush-top{ display:flex !important; }
 
 :root{
-  --side-w-closed: 64px;
-  --side-w-open: 300px;
+  --side-w-closed: 68px;
+  --side-w-open: 248px;
   --side-bg: color-mix(in oklab, var(--bg) 85%, black 15%);
   --side-border: var(--border-strong);
 }
@@ -612,7 +612,7 @@ body.side-open .sidepush{ width: var(--side-w-open); }
 .sidepush-top{
   position: sticky; top: 0;
   display:flex; align-items:center; gap:10px;
-  height: 56px; padding: 0 12px;
+  height: 37px; flex: 0 0 auto; padding: 0 12px;
   border-bottom: 1px solid var(--border);
   background: color-mix(in oklab, var(--side-bg) 92%, transparent);
   backdrop-filter: blur(4px);
@@ -651,7 +651,7 @@ body.side-open .sidepush{ width: var(--side-w-open); }
 /* Base item style (open sidebar) */
 .sidepush-item {
   display: flex; align-items: center; gap: 10px;
-  height: 44px; padding: 0 12px;
+  height: 40px; padding: 0 10px;
   border-radius: 12px; cursor: pointer;
   color: var(--text); text-decoration: none;
   border: 1px solid transparent;
@@ -660,20 +660,9 @@ body.side-open .sidepush{ width: var(--side-w-open); }
   box-sizing: border-box;
 }
 
-/* ── CLOSED state: icon-only, perfectly centred ──────────────────────── */
-body:not(.side-open) .sidepush-item-row {
-  justify-content: center;
-}
-body:not(.side-open) .sidepush-item {
-  flex: 0 0 auto !important;
-  width: 40px !important;
-  height: 40px !important;
-  padding: 0 !important;
-  gap: 0 !important;
-  justify-content: center;
-  border-radius: 10px;
-}
-.sidepush-item .ico{ width: 22px; height: 22px; font-size: 18px; display:inline-flex; align-items:center; justify-content:center; opacity:.9; flex-shrink:0; }
+/* Closed state: icon-only item sized to its content */
+body:not(.side-open) .sidepush-item { flex: 0 0 auto; }
+.sidepush-item .ico{ width: 18px; height: 18px; display:inline-flex; align-items:center; justify-content:center; opacity:.9; flex-shrink:0; }
 .sidepush-item .label{ font-size: 13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .sidepush-item:hover{
   background: color-mix(in oklab, var(--bg) 86%, var(--accent1) 4%);
@@ -724,8 +713,8 @@ body.side-open .push-wrap{ margin-left: var(--side-w-open); }
 
 /* Ensure variables exist and adapt on small screens */
 :root {
-  --side-w-closed: 80px;
-  --side-w-open: 280px;
+  --side-w-closed: 68px;
+  --side-w-open: 248px;
 }
 @media (max-width: 800px) {
   :root { --side-w-open: 84vw; }
@@ -1401,7 +1390,7 @@ html{font-size-adjust: 0.5;}
   align-items: center;
   gap: 8px;
   height: 30px;
-  padding: 0 8px 0 28px;
+  padding: 0 8px 0 38px;
   border-radius: 10px;
   cursor: pointer;
   color: var(--muted);
