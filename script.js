@@ -1,14 +1,3 @@
-// === Superbar width sync ===
-(function(){
-  try{
-    const root=document.documentElement,side=document.querySelector('.sidepush');
-    const setW=()=>root.style.setProperty('--sidepush-w',(side?side.offsetWidth:0)+'px');
-    setW();
-    if(window.ResizeObserver){const ro=new ResizeObserver(setW);if(side)ro.observe(side);window.addEventListener('resize',setW,{passive:true});}
-    else window.addEventListener('resize',setW,{passive:true});
-  }catch(e){}
-})();
-
 function updateMenuToggleUi(){
   const btn=document.getElementById('menuToggle');if(!btn)return;
   const open=document.body.classList.contains('side-open');
@@ -74,21 +63,18 @@ function compareCats(a,b){
 
 // ── i18n ───────────────────────────────────────────────────────────────────
 const I18N={
-  pt:{brand:"A Biblioteca de Web3",by:"por",search:"Buscar por nome",allCats:"Todas as categorias",visit:"Acesse",total:"Total",items:"itens",noResults:"Nenhum resultado.",footerLeadPre:"O projeto",projectName:"A Biblioteca de Web3",footerLeadPost:"foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",thanks:"Obrigado pela visita!",lastUpdate:"Última atualização: Setembro/2026",footernav:'Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.',share:"Compartilhar",copied:"Link copiado!",favHelp:"Use Ctrl+D (Windows) ou Cmd+D (Mac) para favoritar esta página.",kbdTitle:"Atalhos de teclado\n/ – Ativa a barra de busca\nT – Alterna cor do tema\nL – Alterna idioma\n\n★ – Destaque\n🪦 – Falecido(a) / Encerrado",superbarTitle:"BiblioVerse - A Biblioteca de Tudo"},
-  en:{brand:"The Web3 Library",by:"by",search:"Search by name",allCats:"All categories",visit:"Visit",total:"Total",items:"items",noResults:"No results.",footerLeadPre:"The project",projectName:"The Web3 Library",footerLeadPost:"was conceived by Julio Cesar Prava and built with the help of AI. The project showcases items selected and reviewed by human curators.",bookmarkShare:"Bookmark this project and share it!",thanks:"Thanks for visiting!",lastUpdate:"Last update: September/2026",footernav:'Access libraries on other useful topics at <strong class="bverse-strong">BiblioVerse</strong>.',share:"Share",copied:"Link copied!",favHelp:"Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",kbdTitle:"Keyboard shortcuts\n/ – Focus search\nT – Toggle theme\nL – Toggle language\n\n★ – Featured\n🪦 – Deceased / Ended",superbarTitle:"BiblioVerse - The Library of Everything"}
+  pt:{brand:"A Biblioteca de Web3",search:"Buscar por nome",allCats:"Todas as categorias",visit:"Acesse",total:"Total",items:"itens",noResults:"Nenhum resultado.",footerLeadPre:"O projeto",projectName:"A Biblioteca de Web3",footerLeadPost:"foi idealizada por Julio Cesar Prava e construída com a ajuda de IA. O projeto reúne itens selecionados e revisados por curadores humanos.",bookmarkShare:"Salve esse projeto nos seus favoritos e compartilhe!",thanks:"Obrigado pela visita!",lastUpdate:"Última atualização: Outubro/2026",footernav:'Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.',share:"Compartilhar",copied:"Link copiado!",favHelp:"Use Ctrl+D (Windows) ou Cmd+D (Mac) para favoritar esta página.",kbdTitle:"Atalhos de teclado\n/ – Ativa a barra de busca\nT – Alterna cor do tema\nL – Alterna idioma\nB – Abre o menu do BiblioVerse\n\n★ – Destaque\n🪦 – Falecido(a) / Encerrado"},
+  en:{brand:"The Web3 Library",search:"Search by name",allCats:"All categories",visit:"Visit",total:"Total",items:"items",noResults:"No results.",footerLeadPre:"The project",projectName:"The Web3 Library",footerLeadPost:"was conceived by Julio Cesar Prava and built with the help of AI. The project showcases items selected and reviewed by human curators.",bookmarkShare:"Bookmark this project and share it!",thanks:"Thanks for visiting!",lastUpdate:"Last update: October/2026",footernav:'Access libraries on other useful topics at <strong class="bverse-strong">BiblioVerse</strong>.',share:"Share",copied:"Link copied!",favHelp:"Use Ctrl+D (Windows) or Cmd+D (Mac) to bookmark this page.",kbdTitle:"Keyboard shortcuts\n/ – Focus search\nT – Toggle theme\nL – Toggle language\nB – Open the BiblioVerse menu\n\n★ – Featured\n🪦 – Deceased / Ended"}
 };
-const SUPERBAR_I18N={pt:{design:"Design",philosophy:"Filosofia",games:"Games",language:"Idiomas",ai:"IA",print:"Mídia Impressa",music:"Música",management:"Organização",coding:"Programação",thinking:"Racionalidade",social:"Redes Sociais",web3:"Web3"},en:{design:"Design",philosophy:"Philosophy",games:"Games",language:"Language",ai:"AI",print:"Print Media",music:"Music",management:"Organization",coding:"Coding",thinking:"Rationality",social:"Social",web3:"Web3"}};
 
 function setLang(lang){
   const dict=I18N[lang]||I18N.pt;
   try{localStorage.setItem('libia-lang',lang);}catch(e){}
   document.querySelectorAll('.i18n-brand').forEach(el=>el.textContent=dict.brand);
-  const superbarTitleEl=document.querySelector('.i18n-superbar-title');if(superbarTitleEl)superbarTitleEl.textContent=dict.superbarTitle;
   const srch=document.getElementById('search');if(srch)srch.placeholder=dict.search;
   const sel=document.getElementById('categoryFilter');if(sel&&sel.options.length)sel.options[0].textContent=dict.allCats;
   const totalEl=document.querySelector('.i18n-total');if(totalEl)totalEl.textContent=dict.total;
   const itemsEl=document.querySelector('.i18n-items');if(itemsEl)itemsEl.textContent=dict.items;
-  const byEl=document.querySelector('.i18n-by');if(byEl)byEl.textContent=dict.by;
   const leadPre=document.querySelector('.i18n-footer-lead-pre');if(leadPre)leadPre.textContent=dict.footerLeadPre;
   const proj=document.querySelector('.i18n-project-name');if(proj)proj.textContent=dict.projectName;
   const leadPost=document.querySelector('.i18n-footer-lead-post');if(leadPost)leadPost.textContent=dict.footerLeadPost;
@@ -105,11 +91,10 @@ function setLang(lang){
       ? '← To navigate subcategories, open the left sidebar. Click the title of a subcategory below to explore it. ↓'
       : '← Para navegar pelas subcategorias, abra o menu lateral esquerdo. Clique no título de uma subcategoria abaixo para explorá-la. ↓';
   }
-  document.documentElement.setAttribute('lang',lang==='en'?'en':'pt-br');
+  document.documentElement.setAttribute('lang',lang==='en'?'en':'pt-BR');
   const langBtn=document.getElementById('langToggle');if(langBtn)langBtn.textContent=lang==='en'?'🇧🇷':'🇦🇺';
   const themeBtn=document.getElementById('themeToggle');if(themeBtn)themeBtn.setAttribute('aria-label',lang==='en'?'Toggle theme':'Alternar tema');
   const catSel2=document.getElementById('categoryFilter');if(catSel2)catSel2.setAttribute('title',lang==='en'?'Filter by category':'Filtrar por categoria');
-  try{const labels=SUPERBAR_I18N[lang]||SUPERBAR_I18N.pt;document.querySelectorAll('.superbar-list [data-key]').forEach(a=>{const key=a.getAttribute('data-key');if(key&&labels[key])a.textContent=labels[key];});}catch(e){}
 }
 
 // ── Favicons ───────────────────────────────────────────────────────────────
@@ -138,11 +123,17 @@ function createCard(item){
   const parsed=parseCompanyItem(item.name);
   const title=document.createElement('p');title.className='title-line';
   (window.requestIdleCallback||window.requestAnimationFrame)(()=>{try{const ico=createFaviconEl(item.url,parsed.item);title.insertBefore(ico,title.firstChild);}catch(e){}});
-  const m=parsed.item.match(/^(.*?)(\s*\(.*\)\s*)$/);
-  if(m){title.appendChild(document.createTextNode(' '+m[1].trim()));const par=document.createElement('span');par.className='paren';par.textContent=m[2];title.appendChild(par);}
-  else{title.appendChild(document.createTextNode(' '+parsed.item));}
+  // Name; a trailing "(...)" goes to its own line so long names don't get truncated
+  const nameEl=document.createElement('span');nameEl.className='name';
+  const m=parsed.item.match(/^(.*?)\s*(\(.*\))\s*$/);
+  if(m&&m[1]){nameEl.appendChild(document.createTextNode(m[1].trim()));const par=document.createElement('span');par.className='paren';par.textContent=m[2];nameEl.appendChild(par);}
+  else{nameEl.textContent=parsed.item;}
+  title.appendChild(nameEl);
   if(isFeatured(item)){const s=document.createElement('span');s.className='featured-star';s.title=getLang()==='en'?'Featured':'Destaque';s.textContent='★';title.appendChild(s);}
   if(isEnded(item)){const s=document.createElement('span');s.className='featured-star ended-badge';{const en=getLang()==='en';const person=(item.category==='Pessoas');s.title=person?(en?'Deceased':'Falecido(a)'):(en?'Ended':'Encerrado');}s.textContent='🪦';title.appendChild(s);}
+  // Featured + ended: star sits left of the tombstone and the text keeps clear of both
+  const starEl=title.querySelector('.featured-star:not(.ended-badge)'),endedEl=title.querySelector('.ended-badge');
+  if(starEl&&endedEl){endedEl.style.right='0px';starEl.style.right='30px';title.style.paddingRight='56px';}
   d.appendChild(title);
   if(parsed.company){const sub=document.createElement('p');sub.className='subtitle';sub.textContent=parsed.company;d.appendChild(sub);}
   return d;
@@ -264,7 +255,7 @@ function initTheme(){
 // ── Utilities ──────────────────────────────────────────────────────────────
 function ensureToastContainer(){let t=document.getElementById('toast');if(!t){t=document.createElement('div');t.id='toast';document.body.appendChild(t);}return t;}
 function showToast(msg){const t=ensureToastContainer();t.textContent=msg;t.classList.remove('show');void t.offsetWidth;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600);}
-function getHeaderOffset(){const h=document.querySelector('.site-header');return(h?h.offsetHeight:0)+12;}
+function getHeaderOffset(){const h=document.querySelector('.site-header');const bar=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bvbar-h'))||44;return bar+(h?h.offsetHeight:0)+12;}
 function smoothScrollToId(id){const el=document.getElementById(id);if(!el)return;const y=window.scrollY+el.getBoundingClientRect().top-getHeaderOffset();requestAnimationFrame(()=>window.scrollTo({top:Math.max(0,y),behavior:'smooth'}));}
 // Scroll to subcategory with extra offset so h3 title is fully visible (not hidden behind header)
 function smoothScrollToSubcat(id){
@@ -281,6 +272,20 @@ function updateDocTitleAndMeta(){const lang=getLang();const name=lang==='en'?'Bi
 function setupShare(){const btn=document.getElementById('shareBtn');if(!btn)return;btn.addEventListener('click',async()=>{if(navigator.share){try{await navigator.share({title:document.title,url:location.href});return;}catch(e){}}try{await navigator.clipboard.writeText(location.href);alert(getLang()==='en'?I18N.en.copied:I18N.pt.copied);}catch(e){}});}
 function setupFavorite(){const btn=document.getElementById('favBtn');if(!btn)return;btn.addEventListener('click',()=>{if(window.external&&'AddFavorite'in window.external){try{window.external.AddFavorite(location.href,document.title);return;}catch(e){}}alert(getLang()==='en'?I18N.en.favHelp:I18N.pt.favHelp);});}
 function setupInfo(){const btn=document.getElementById('infoBtn'),tip=document.getElementById('infoTip');if(!btn||!tip)return;tip.textContent=getLang()==='en'?I18N.en.kbdTitle:I18N.pt.kbdTitle;const show=()=>tip.setAttribute('aria-hidden','false'),hide=()=>tip.setAttribute('aria-hidden','true');btn.addEventListener('mouseenter',show);btn.addEventListener('focus',show);btn.addEventListener('mouseleave',hide);btn.addEventListener('blur',hide);}
+
+// Hash may point to a category (#cat) or a subcategory (#cat--sub)
+function openHash(data,h){
+  const sel=document.getElementById('categoryFilter');
+  const catId=h.split('--')[0];
+  if(![...sel.options].some(o=>o.value===catId))return false;
+  if(sel.value!==catId){sel.value=catId;applyFilters(data);}
+  if(h!==catId){
+    const sub=document.getElementById(h);
+    if(sub){sub.classList.remove('is-collapsed');const b=sub.querySelector('.subcat-inline-toggle');if(b)b.textContent='−';const h3=sub.querySelector('h3');if(h3)h3.setAttribute('aria-expanded','true');smoothScrollToSubcat(h);}
+  }else{const s=document.getElementById(catId);if(s)smoothScrollToId(catId);}
+  scrollSidebarToId(catId);
+  return true;
+}
 
 // ── Sidebar scroll helper ──────────────────────────────────────────────────
 function scrollSidebarToId(idOrAll){
@@ -320,7 +325,7 @@ function scrollSidebarToId(idOrAll){
     :'← Para navegar pelas subcategorias, abra o menu lateral esquerdo. Clique no título de uma subcategoria abaixo para explorá-la. ↓';
   window.scrollTo({top:0,behavior:'smooth'});
   window.addEventListener('scroll',()=>{const y=window.scrollY||document.documentElement.scrollTop;toTop.classList.toggle('show',y>200);});
-  if(initialHash)setTimeout(()=>{const s=document.getElementById(initialHash);if(s)smoothScrollToId(s.id);},0);
+  if(initialHash)setTimeout(()=>openHash(data,initialHash),0);
   document.getElementById('search').addEventListener('input',()=>applyFilters(data));
   sel.addEventListener('change',()=>{
     const v=sel.value;applyFilters(data);
@@ -329,14 +334,16 @@ function scrollSidebarToId(idOrAll){
   });
   document.getElementById('themeToggle').addEventListener('click',()=>{const now=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';setTheme(now);});
   const langBtn=document.getElementById('langToggle');
-  if(langBtn){langBtn.textContent=getLang()==='en'?'🇧🇷':'🇦🇺';langBtn.addEventListener('click',()=>{const next=getLang()==='en'?'pt':'en';setLang(next);const c2=groupBy(data,'category');populateSelect(c2);sel.value='all';applyFilters(data);if(window.__rebuildSideMenu)window.__rebuildSideMenu();if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);else location.hash='';updateDocTitleAndMeta();window.scrollTo({top:0,behavior:'smooth'});});}
-  window.addEventListener('hashchange',()=>{const h=(location.hash||'').replace(/^#/,'');if(h&&sel.value!==h){sel.value=h;applyFilters(data);const s=document.getElementById(h);if(s)smoothScrollToId(s.id);scrollSidebarToId(h);}if(!h&&sel.value!=='all'){sel.value='all';applyFilters(data);window.scrollTo({top:0,behavior:'smooth'});scrollSidebarToId('all');}});
+  function switchLang(){const next=getLang()==='en'?'pt':'en';setLang(next);const c2=groupBy(data,'category');populateSelect(c2);sel.value='all';applyFilters(data);if(window.__rebuildSideMenu)window.__rebuildSideMenu();if(history.replaceState)history.replaceState(null,'',location.pathname+location.search);else location.hash='';updateDocTitleAndMeta();window.scrollTo({top:0,behavior:'smooth'});}
+  if(langBtn){langBtn.textContent=getLang()==='en'?'🇧🇷':'🇦🇺';langBtn.addEventListener('click',switchLang);}
+  window.addEventListener('hashchange',()=>{const h=decodeURIComponent((location.hash||'').replace(/^#/,''));if(h)openHash(data,h);if(!h&&sel.value!=='all'){sel.value='all';applyFilters(data);window.scrollTo({top:0,behavior:'smooth'});scrollSidebarToId('all');}});
   setupShare();setupFavorite();setupInfo();
   document.addEventListener('keydown',e=>{
-    const inField=e.target.matches('input,textarea,[contenteditable="true"]');
+    if(e.ctrlKey||e.metaKey||e.altKey)return; // leave browser shortcuts (Ctrl+L, Ctrl+T...) alone
+    const inField=e.target.closest&&e.target.closest('input,textarea,select,[contenteditable="true"]');
     if(e.key==='/'&&!inField){e.preventDefault();document.querySelector('#search').focus();}
     if(!inField&&e.key&&e.key.toLowerCase()==='t'){e.preventDefault();const now=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';setTheme(now);}
-    if(!inField&&e.key&&e.key.toLowerCase()==='l'){e.preventDefault();const next=getLang()==='en'?'pt':'en';setLang(next);const c3=groupBy(data,'category');populateSelect(c3);sel.value='all';applyFilters(data);if(window.__rebuildSideMenu)window.__rebuildSideMenu();}
+    if(!inField&&e.key&&e.key.toLowerCase()==='l'){e.preventDefault();switchLang();}
   });
 })();
 
@@ -517,13 +524,5 @@ if(typeof updateMenuToggleUi==='function')window.addEventListener('resize',updat
   const syncLock=()=>{document.body.style.overflow=document.body.classList.contains('side-open')&&isOverlay()?'hidden':'';};
   window.addEventListener('resize',syncLock);syncLock();
 })();
-
-// Superbar
-document.addEventListener('DOMContentLoaded',()=>{
-  const nav=document.querySelector('.superbar');if(!nav)return;
-  const toggle=nav.querySelector('.superbar-toggle'),list=nav.querySelector('.superbar-list');if(!list)return;
-  if(toggle){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');toggle.setAttribute('aria-expanded',open?'true':'false');});}
-  list.addEventListener('click',ev=>{const a=ev.target.closest('a');if(!a)return;if(window.matchMedia('(max-width: 720px)').matches){nav.classList.remove('is-open');if(toggle)toggle.setAttribute('aria-expanded','false');}});
-});
 
 window.addEventListener('load',()=>{try{document.getElementById('root').classList.add('hydrated');}catch(e){}});

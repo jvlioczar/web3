@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<link href="./images/icon_192.png" rel="apple-touch-icon"/>
-<link as="image" href="./images/icon.svg" imagesizes="23px" rel="preload"/>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<title>BiblioVerse — A Biblioteca de Web3 — Catálogo pesquisável de Web3: blockchain, cripto, DeFi, NFTs e mais</title>
+<meta content="Catálogo pesquisável de Web3: conceitos de blockchain, criptomoedas, DeFi, corretoras, carteiras, NFTs, ferramentas, regulação, pessoas e história." name="description"/>
+<link href="https://web3.biblioverse.org/" rel="canonical"/>
 <meta content="#0e1117" name="theme-color"/>
 <meta content="yes" name="mobile-web-app-capable"/>
 <meta content="yes" name="apple-mobile-web-app-capable"/>
-<title>BiblioVerse — A Biblioteca de Web3 — Catálogo pesquisável de Web3: blockchain, cripto, DeFi, NFTs e mais</title>
+<!-- App icons -->
 <link href="images/icon.svg" rel="icon" type="image/svg+xml"/>
 <link href="images/icon_192.png" rel="icon" sizes="192x192" type="image/png"/>
 <link href="images/icon_512.png" rel="icon" sizes="512x512" type="image/png"/>
 <link href="images/icon_192.png" rel="apple-touch-icon"/>
 <link href="manifest.webmanifest" rel="manifest"/>
-<meta content="Catálogo pesquisável de Web3: conceitos de blockchain, criptomoedas, DeFi, corretoras, carteiras, NFTs, ferramentas, regulação, pessoas e história." name="description"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="anonymous" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&display=swap" rel="stylesheet"/></noscript>
+<link as="style" href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400;700&amp;display=swap" rel="stylesheet"/></noscript>
 <link as="style" href="styles.css" onload="this.rel='stylesheet'" rel="preload"/><noscript><link href="styles.css" rel="stylesheet"/></noscript>
-<style id="bvbar-critical">:root{--superbar-h:40px}.bvbar{position:fixed;top:0;left:0;right:0;height:var(--superbar-h);z-index:9000;display:flex;align-items:center;gap:10px;padding:0 14px;background:linear-gradient(90deg,var(--accent1,#4f7cff),var(--accent2,#7a5cff));color:#fff;font-family:"TASA Explorer",ui-monospace,monospace;font-size:14px}.bvbar a{color:#fff;text-decoration:none;font-weight:700}.bvbar-sep{opacity:.6}</style>
+<script src="https://biblioverse.org/superbar.js" defer></script>
 </head>
 <body>
-<!-- Super-bar -->
-<nav aria-label="BiblioVerse" class="bvbar" id="bvbar" data-current="web3" data-logo="images/icon.svg"><a class="bvbar-home" href="https://biblioverse.org">BiblioVerse</a><span class="bvbar-sep">/</span><span class="bvbar-cur-static">Web3</span></nav>
+<!-- BiblioVerse Superbar -->
+<nav id="bvbar" class="bvbar" data-current="web3" aria-label="BiblioVerse" style="position:fixed;top:0;left:0;right:0;height:44px;z-index:9000;background:linear-gradient(90deg,#4f7cff,#7a5cff)"><a href="https://biblioverse.org" style="color:#fff;line-height:44px;padding:0 14px;font-weight:700;text-decoration:none;font-family:sans-serif">BiblioVerse</a></nav>
 <aside aria-label="Categorias" class="sidepush" id="sidepush"><div class="sidepush-top"><button aria-label="Expandir menu" class="side-toggle" id="menuToggle" title="Expandir menu" type="button">▶</button></div><nav class="sidepush-scroll" id="sideScroll"><ul class="sidepush-menu" id="sideMenu"></ul></nav></aside><div class="push-wrap" id="pushWrap"><header class="site-header">
 <div class="header-inner container">
 <div class="brand-wrap">
@@ -36,13 +36,9 @@
 </a>
 <span class="beta-badge">BETA</span>
 </h1>
-<span class="byline">
-<span class="i18n-by">Idealizada por</span>
-<a class="bylink" href="https://jvlio.biblioverse.org" rel="noopener noreferrer" target="_blank">Julio Cesar Prava</a>
-</span>
 </div>
 <div class="controls">
-<input autofocus="" class="mono" id="search" placeholder="Buscar por nome" type="search"/>
+<input class="mono" id="search" placeholder="Buscar por nome" type="search"/>
 <select class="mono" id="categoryFilter" title="Filtrar por categoria"></select>
 <div class="control-group">
 <button aria-label="Alternar tema" class="toggle" id="themeToggle" type="button">☀️</button>
@@ -62,7 +58,7 @@
       <span id="count">0</span>
 <span class="i18n-items">itens</span>
 <span class="sep">|</span>
-<span class="i18n-lastupdate">Última atualização: Setembro/2026</span>
+<span class="i18n-lastupdate">Última atualização: Outubro/2026</span>
 </div>
 <p class="footer-lead">
 <span class="i18n-footer-lead-pre">O projeto</span>
@@ -72,7 +68,7 @@
 <p class="footer-note i18n-bookmarkShare">Salve esse projeto nos seus favoritos e compartilhe!</p>
 <p class="footer-nav"><span class="i18n-footernav">Acesse as bibliotecas de outros temas úteis no <strong class="bverse-strong">BiblioVerse</strong>.</span></p>
 <div class="footer-actions">
-<a class="btn linkedin mono" href="https://jvlio.biblioverse.org" rel="noopener noreferrer" target="_blank">LinkedIn</a>
+<a class="btn linkedin mono" href="https://www.linkedin.com/company/biblioverse.org" rel="noopener noreferrer" target="_blank">LinkedIn</a>
 <button aria-label="Favoritar" class="btn star mono" id="favBtn" type="button">⭐</button>
 <button class="btn share mono" id="shareBtn" type="button"><span class="i18n-share">Compartilhar</span></button>
 <a class="btn bverse mono" href="https://biblioverse.org" rel="noopener noreferrer" target="_blank">BiblioVerse</a>
@@ -856,7 +852,7 @@
     "category": "Blockchains",
     "subcategory": "Layer 1",
     "name": "Avalanche",
-    "url": "https://www.avax.network/",
+    "url": "https://www.avalanche.com/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1316,7 +1312,7 @@
     "category": "DeFi",
     "subcategory": "Empréstimos",
     "name": "Spark",
-    "url": "https://spark.fi/",
+    "url": "https://spark.finance/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1347,6 +1343,16 @@
     "subcategory": "Empréstimos",
     "name": "Liquity",
     "url": "https://www.liquity.org/",
+    "description": "",
+    "tags": [],
+    "featured": false,
+    "ended": false
+  },
+  {
+    "category": "DeFi",
+    "subcategory": "Empréstimos",
+    "name": "Sky (antiga MakerDAO)",
+    "url": "https://sky.money/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1426,7 +1432,7 @@
     "category": "DeFi",
     "subcategory": "Derivativos e mercados de previsão",
     "name": "dYdX",
-    "url": "https://www.dydx.exchange/",
+    "url": "https://www.dydx.xyz/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1486,7 +1492,7 @@
     "category": "DeFi",
     "subcategory": "Agregadores e rendimento",
     "name": "1inch",
-    "url": "https://1inch.io/",
+    "url": "https://1inch.com/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1516,7 +1522,7 @@
     "category": "DeFi",
     "subcategory": "Agregadores e rendimento",
     "name": "Jumper",
-    "url": "https://jumper.exchange/",
+    "url": "https://jumper.xyz/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1715,8 +1721,8 @@
   {
     "category": "Corretoras",
     "subcategory": "Brasil e América Latina",
-    "name": "Bitpreço",
-    "url": "https://bitpreco.com/",
+    "name": "Bitypreço",
+    "url": "https://bitypreco.com/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -1736,7 +1742,7 @@
     "category": "Corretoras",
     "subcategory": "Brasil e América Latina",
     "name": "Nubank Cripto",
-    "url": "https://nubank.com.br/cripto/",
+    "url": "https://nubank.com.br/sobre-cripto",
     "description": "",
     "tags": [],
     "featured": false,
@@ -2916,7 +2922,7 @@
     "category": "Segurança e auditoria",
     "subcategory": "Auditorias e pesquisa",
     "name": "Consensys Diligence",
-    "url": "https://diligence.consensys.io/",
+    "url": "https://diligence.security/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -2926,7 +2932,7 @@
     "category": "Segurança e auditoria",
     "subcategory": "Auditorias e pesquisa",
     "name": "Cantina (Spearbit)",
-    "url": "https://cantina.xyz/",
+    "url": "https://www.cantina.security/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3176,7 +3182,7 @@
     "category": "Investimento institucional",
     "subcategory": "Empresas",
     "name": "Consensys",
-    "url": "https://consensys.io/",
+    "url": "https://consensys.com/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3256,7 +3262,7 @@
     "category": "Regulação e CBDCs",
     "subcategory": "Moedas digitais de bancos centrais",
     "name": "Euro digital",
-    "url": "https://en.wikipedia.org/wiki/Digital_euro",
+    "url": "https://www.ecb.europa.eu/euro/digital_euro/html/index.en.html",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3516,7 +3522,7 @@
     "category": "Organizações e fundações",
     "subcategory": "Financiamento de código aberto",
     "name": "Protocol Labs",
-    "url": "https://www.protocol.ai/",
+    "url": "https://pl.xyz/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3566,7 +3572,7 @@
     "category": "Notícias e mídia",
     "subcategory": "Internacionais",
     "name": "Blockworks",
-    "url": "https://blockworks.co/",
+    "url": "https://blockworks.com/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3646,7 +3652,7 @@
     "category": "Notícias e mídia",
     "subcategory": "Brasil",
     "name": "Cointelegraph Brasil",
-    "url": "https://br.cointelegraph.com/",
+    "url": "https://cointelegraph.com.br/",
     "description": "",
     "tags": [],
     "featured": false,
@@ -3716,7 +3722,7 @@
     "category": "Podcasts e canais",
     "subcategory": "Podcasts",
     "name": "Empire",
-    "url": "https://blockworks.co/podcast/empire",
+    "url": "https://blockworks.com/podcast/empire",
     "description": "",
     "tags": [],
     "featured": false,
@@ -4016,7 +4022,7 @@
     "category": "Educação",
     "subcategory": "Whitepapers e documentos fundamentais",
     "name": "Wei Dai - b-money",
-    "url": "http://www.weidai.com/bmoney.txt",
+    "url": "https://www.weidai.com/bmoney.txt",
     "description": "",
     "tags": [],
     "featured": false,
@@ -4793,8 +4799,9 @@
     "ended": false
   }
 ]
-</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script defer src="https://biblioverse.org/superbar.js" onerror="var s=document.createElement('script');s.src='superbar.js';document.head.appendChild(s)"></script><script defer="" src="script.js"></script></div>
+</script><script>window.DEFAULT_CATEGORY="__ALL__";</script><script defer="" src="script.js"></script></div>
 <!-- PWA Install Button -->
 <button class="pwa-install" hidden="" id="btnInstall">Instalar app</button>
+<script defer="defer" src="./sw-register.js"></script>
 </body>
 </html>
